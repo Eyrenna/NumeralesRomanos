@@ -33,12 +33,6 @@ public enum Romanos {
 
     //Métodos
 
-    //__Setters
-
-    public void setValor(int valor) {
-        this.valor = valor;
-    }
-
 
     //__Getters
 
