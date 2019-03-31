@@ -57,4 +57,17 @@ public class RomanosTest {
         assertFalse(RomanMatcher.validarNumero(numeroTres));
         assertFalse(RomanMatcher.validarNumero(numeroCuatro));
     }
+
+    @Test
+    public void buscarSumanTest() {
+        assertTrue(RomanMatcher.buscarSuman(numeroDos).contains("M"));
+        assertTrue(RomanMatcher.buscarSuman(numeroDos).contains("D"));
+        assertTrue(RomanMatcher.buscarSuman(numeroDos).contains("L"));
+        assertTrue(RomanMatcher.buscarSuman(numeroDos).contains("X"));
+        assertTrue(RomanMatcher.buscarSuman(milQuinientos).contains("M"));
+        assertTrue(RomanMatcher.buscarSuman(milQuinientos).contains("D"));
+    }
+
+
+
 }
