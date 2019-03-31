@@ -11,13 +11,14 @@ public class RomanMatcher {
 
     private static String numero = "";
     private static Set<String> conjuntoSuman = new HashSet<>();
-    private Set<String> conjuntoRestan = new HashSet<>();
+    private static Set<String> conjuntoRestan = new HashSet<>();
 
     private static String valido = "^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})";
     private static String suma = "(?<!C)[MD]|(?<!X)[CL](?![DM])|(?<!I)[XV](?!LC)|[I](?!XV)";
-    private String resta = "";
+    private static String resta = "(C[MD])|(X[CL])|(I[XV])";
 
     static Pattern suman = Pattern.compile(suma);
+    static Pattern restan = Pattern.compile(resta);
 
     //Métodos
 
@@ -34,5 +35,13 @@ public class RomanMatcher {
         return conjuntoSuman;
     }
 
+
+    public static Set<String> buscarRestan(String numero) {
+        Matcher romano = restan.matcher(numero);
+        while (romano.find()) {
+            conjuntoRestan.add(romano.group());
+        }
+        return conjuntoRestan;
+    }
 
 }

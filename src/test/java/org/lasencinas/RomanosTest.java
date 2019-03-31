@@ -69,5 +69,10 @@ public class RomanosTest {
     }
 
 
+    @Test
+    public void buscarRestanTest() {
+        assertTrue(RomanMatcher.buscarRestan(numeroUno).contains("IV"));
+        assertTrue(RomanMatcher.buscarRestan(numeroCuatro).contains("CM"));
+    }
 
 }
