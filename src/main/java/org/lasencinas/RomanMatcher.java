@@ -11,16 +11,12 @@ public class RomanMatcher {
 
     //Atributos
 
-    private String numero = "";
-    private Set<String> conjuntoSuman = new HashSet<>();
-    private Set<String> conjuntoRestan = new HashSet<>();
-
     private static String valido = "^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})";
+
     private static String suma = "(?<!C)[MD]|(?<!X)[CL](?![DM])|(?<!I)[XV](?!LC)|[I](?!XV)";
     private static String resta = "(C[MD])|(X[CL])|(I[XV])";
+    private static String[] grupos = {suma, resta};
 
-    static Pattern suman = Pattern.compile(suma);
-    static Pattern restan = Pattern.compile(resta);
 
     private Integer totalRestan = 0;
 
@@ -31,28 +27,22 @@ public class RomanMatcher {
     }
 
 
-    public static List<String> buscarSuman(String numero) {
-        List<String> conjuntoSuman = new ArrayList<>();
-        Matcher romano = suman.matcher(numero);
-        while (romano.find()) {
-            conjuntoSuman.add(romano.group());
+    public static List<String> buscarGrupos(String numero) {
+        List<String> conjunto = new ArrayList<>();
+        for (String grupo : grupos) {
+            Pattern patron = Pattern.compile(grupo);
+            Matcher romano = patron.matcher(numero);
+            while (romano.find()) {
+                conjunto.add(romano.group());
+            }
         }
-        return conjuntoSuman;
+        return conjunto;
     }
-
-
-    /*public static Set<String> buscarRestan(String numero) {
-        Matcher romano = restan.matcher(numero);
-        while (romano.find()) {
-            conjuntoRestan.add(romano.group());
-        }
-        return conjuntoRestan;
-    }*/
 
 
     public static Integer traducirRomano(String numero) {
         Integer totalSuman = 0;
-        for (String grupo : buscarSuman(numero)) {
+        for (String grupo : buscarGrupos(numero)) {
             for (Romanos romano : Romanos.values()) {
                 if (romano.name().equals(grupo)) {
                     totalSuman += romano.getValor();

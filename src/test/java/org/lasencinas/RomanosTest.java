@@ -60,21 +60,17 @@ public class RomanosTest {
     }
 
     @Test
-    public void buscarSumanTest() {
-        assertTrue(RomanMatcher.buscarSuman(numeroDos).contains("M"));
-        assertTrue(RomanMatcher.buscarSuman(numeroDos).contains("D"));
-        assertTrue(RomanMatcher.buscarSuman(numeroDos).contains("L"));
-        assertTrue(RomanMatcher.buscarSuman(numeroDos).contains("X"));
-        assertTrue(RomanMatcher.buscarSuman(milQuinientos).contains("M"));
-        assertTrue(RomanMatcher.buscarSuman(milQuinientos).contains("D"));
+    public void buscarGrupos() {
+        assertTrue(RomanMatcher.buscarGrupos(numeroDos).contains("M"));
+        assertTrue(RomanMatcher.buscarGrupos(numeroDos).contains("D"));
+        assertTrue(RomanMatcher.buscarGrupos(numeroDos).contains("L"));
+        assertTrue(RomanMatcher.buscarGrupos(numeroDos).contains("X"));
+        assertTrue(RomanMatcher.buscarGrupos(milQuinientos).contains("M"));
+        assertTrue(RomanMatcher.buscarGrupos(milQuinientos).contains("D"));
+        assertTrue(RomanMatcher.buscarGrupos(numeroUno).contains("IV"));
+        assertTrue(RomanMatcher.buscarGrupos(numeroCinco).contains("CM"));
+        assertTrue(RomanMatcher.buscarGrupos(numeroCinco).contains("M"));
     }
-
-
-    /*@Test
-    public void buscarRestanTest() {
-        assertTrue(RomanMatcher.buscarRestan(numeroUno).contains("IV"));
-        assertTrue(RomanMatcher.buscarRestan(numeroCuatro).contains("CM"));
-    }*/
 
     @Test
     public void traducirTest() {
