@@ -18,7 +18,7 @@ public class RomanosTest {
     String milTresCientos = "MCCC";
     String fakeCuatrocientos= "CCCC"; //Error
     String seisCientos = "DC";
-    String veinte = "X";
+    String veinte = "XX";
     String treinta = "XXX";
     String fakeCuarenta = "XXXX"; //Error
     String numeroUno = "IVX"; //Error
@@ -70,12 +70,32 @@ public class RomanosTest {
         assertTrue(RomanMatcher.buscarGrupos(numeroUno).contains("IV"));
         assertTrue(RomanMatcher.buscarGrupos(numeroCinco).contains("CM"));
         assertTrue(RomanMatcher.buscarGrupos(numeroCinco).contains("M"));
+        assertTrue(RomanMatcher.buscarGrupos(numeroCinco).contains("XL"));
     }
 
     @Test
     public void traducirTest() {
         assertEquals(3888, RomanMatcher.traducirRomano(numeroDos), 0);
-        assertEquals(1000, RomanMatcher.traducirRomano("M"), 0);
+        assertEquals(1000, RomanMatcher.traducirRomano(mil), 0);
+        assertEquals(2000, RomanMatcher.traducirRomano(dosMil), 0);
+        assertEquals(3000, RomanMatcher.traducirRomano(tresMil), 0);
+        assertEquals(0, RomanMatcher.traducirRomano(fakeCuatroMil), 0);
+        assertEquals(1500, RomanMatcher.traducirRomano(milQuinientos), 0);
+        assertEquals(0, RomanMatcher.traducirRomano(milMil), 0);
+        assertEquals(0, RomanMatcher.traducirRomano(fakeMil), 0);
+        assertEquals(1100, RomanMatcher.traducirRomano(milCien), 0);
+        assertEquals(1200, RomanMatcher.traducirRomano(milDosCientos), 0);
+        assertEquals(1300, RomanMatcher.traducirRomano(milTresCientos), 0);
+        assertEquals(0, RomanMatcher.traducirRomano(fakeCuatrocientos), 0);
+        assertEquals(600, RomanMatcher.traducirRomano(seisCientos), 0);
+        assertEquals(20, RomanMatcher.traducirRomano(veinte), 0);
+        assertEquals(30, RomanMatcher.traducirRomano(treinta), 0);
+        assertEquals(0, RomanMatcher.traducirRomano(fakeCuarenta), 0);
+        assertEquals(0, RomanMatcher.traducirRomano(numeroUno), 0);
+        assertEquals(3888, RomanMatcher.traducirRomano(numeroDos), 0);
+        assertEquals(0, RomanMatcher.traducirRomano(numeroTres), 0);
+        assertEquals(0, RomanMatcher.traducirRomano(numeroCuatro), 0);
+        assertEquals(2946, RomanMatcher.traducirRomano(numeroCinco), 0);
     }
 
 

@@ -18,8 +18,6 @@ public class RomanMatcher {
     private static String[] grupos = {suma, resta};
 
 
-    private Integer totalRestan = 0;
-
     //Métodos
 
     public static Boolean validarNumero(String numero) {
@@ -41,14 +39,15 @@ public class RomanMatcher {
 
 
     public static Integer traducirRomano(String numero) {
-        Integer totalSuman = 0;
-        for (String grupo : buscarGrupos(numero)) {
-            for (Romanos romano : Romanos.values()) {
-                if (romano.name().equals(grupo)) {
-                    totalSuman += romano.getValor();
+        Integer traduccion = 0;
+        if (validarNumero(numero)){
+            for (String grupo : buscarGrupos(numero)) {
+                for (Romanos romano : Romanos.values()) {
+                    if (romano.name().equals(grupo)) {
+                        traduccion += romano.getValor();
+                    }
                 }
             }
-        }
-        return totalSuman;
+        }return traduccion;
     }
 }
