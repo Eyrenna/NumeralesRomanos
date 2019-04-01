@@ -25,6 +25,7 @@ public class RomanosTest {
     String numeroDos = "MMMDCCCLXXXVIII";
     String numeroTres = "DM"; //Error
     String numeroCuatro = "CMCD"; //Error
+    String numeroCinco = "MMCMXLVI";
 
 
     @Test
@@ -69,10 +70,18 @@ public class RomanosTest {
     }
 
 
-    @Test
+    /*@Test
     public void buscarRestanTest() {
         assertTrue(RomanMatcher.buscarRestan(numeroUno).contains("IV"));
         assertTrue(RomanMatcher.buscarRestan(numeroCuatro).contains("CM"));
+    }*/
+
+    @Test
+    public void traducirTest() {
+        assertEquals(3888, RomanMatcher.traducirRomano(numeroDos), 0);
+        assertEquals(1000, RomanMatcher.traducirRomano("M"), 0);
     }
+
+
 
 }
