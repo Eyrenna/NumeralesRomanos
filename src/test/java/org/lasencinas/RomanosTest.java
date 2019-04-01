@@ -27,6 +27,8 @@ public class RomanosTest {
     String numeroCuatro = "CMCD"; //Error
     String numeroCinco = "MMCMXLVI";
     String dosDosCuatro = "CCXXIV";
+    String cuatro = "IV";
+    String nueveNueveNueve= "CMXCIX";
 
 
     @Test
@@ -96,8 +98,10 @@ public class RomanosTest {
         assertEquals(3888, RomanMatcher.traducirRomano(numeroDos), 0);
         assertEquals(0, RomanMatcher.traducirRomano(numeroTres), 0);
         assertEquals(0, RomanMatcher.traducirRomano(numeroCuatro), 0);
-        //assertEquals(2946, RomanMatcher.traducirRomano(numeroCinco), 0);
+        assertEquals(2946, RomanMatcher.traducirRomano(numeroCinco), 0);
         assertEquals(224, RomanMatcher.traducirRomano(dosDosCuatro), 0);
+        assertEquals(4, RomanMatcher.traducirRomano(cuatro), 0);
+        assertEquals(999, RomanMatcher.traducirRomano(nueveNueveNueve), 0);
     }
 
 
